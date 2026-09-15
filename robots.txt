@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /images/
+Allow: /images/logo.png
+
+# Sitemap location
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Crawl delay (optional - prevent server overload)
+Crawl-delay: 1

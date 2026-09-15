@@ -1,0 +1,65 @@
+/* Responsive fixes and helpers (overrides) */
+:root{
+  --container-max:1200px;
+  --accent-1:#ffc107;
+  --accent-2:#ff8c00;
+  --text-dark:#0f2340;
+}
+
+/* Ensure media scale and images behave */
+*,*::before,*::after{box-sizing:border-box}
+img, picture, video, svg { max-width:100%; height:auto; display:block; }
+
+/* Make the container predictable across viewports */
+.container{ max-width:var(--container-max); margin:0 auto; padding:0 20px; width:100%; }
+
+/* Fluid base font sizing */
+html{ font-size:16px; }
+body{ font-size: clamp(14px, 1.4vw, 18px); }
+
+/* Fluid heading scales */
+.hero h1{ font-size: clamp(2.2rem, 5vw, 5rem); line-height:1.02; }
+.section-title{ font-size: clamp(1.6rem, 2.2vw, 3rem); }
+
+/* Improve internship CTA visibility */
+.internship-apply-box{ padding:24px; border-radius:16px; }
+.internship-cta-text{ font-size: clamp(1.05rem, 1.4vw, 1.25rem); font-weight:800; color:var(--text-dark); }
+.internship-cta-text a{ color:var(--text-dark); text-decoration:underline; }
+.internship-btn{ padding:12px 28px; font-weight:800; }
+
+/* Layout helpers */
+.services-grid{ grid-auto-rows: 1fr; }
+
+/* Extra small devices (older phones, tiny wearables) */
+@media (max-width: 320px){
+  body{ font-size: 13px; }
+  .hero{ padding: 40px 0; }
+  .hero h1{ font-size: 1.6rem; }
+  .section-padding{ padding: 30px 0; }
+  .section-title{ font-size: 1.25rem; }
+  .internship-apply-box{ padding:12px; }
+  .internship-cta-text{ font-size: 0.95rem; }
+}
+
+/* Small devices */
+@media (max-width: 480px){
+  .services-grid{ gap:18px; }
+  .service-card{ padding:18px; }
+}
+
+/* Large / ultra-wide screens */
+@media (min-width: 1600px){
+  :root{ --container-max:1400px; }
+  .hero h1{ font-size: clamp(3rem, 3.5vw, 6.5rem); }
+  .section-title{ font-size: clamp(2rem, 2.4vw, 4rem); }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* Micro tweaks for legacy devices/agents */
+@supports (display: grid){
+  /* nothing extra; modern devices will use existing grid rules */
+}
